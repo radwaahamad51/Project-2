@@ -8,6 +8,8 @@ import UserOrders from "../../server-rileted/myoder";
 import TopFoods from "../../Component/topFood";
 import SingleFoodPage from "../../Component/singelpage";
 import PurchaseFood from "../../server-rileted/foodpurchase";
+import Orders from "../../server-rileted/Oder";
+
 
 
 const router = createBrowserRouter([
@@ -53,6 +55,12 @@ const router = createBrowserRouter([
                 path:"purchase/:id",
                 element:<PurchaseFood></PurchaseFood>,
                  loader: ({ params }) => fetch(`http://localhost:5000/addfood/${params.id}`)
+
+            },
+            {
+                path:"/oder",
+                element: <Orders></Orders>,
+               
 
             }
 
