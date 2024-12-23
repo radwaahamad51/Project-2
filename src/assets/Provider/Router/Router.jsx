@@ -11,6 +11,7 @@ import PurchaseFood from "../../server-rileted/foodpurchase";
 import Orders from "../../server-rileted/Oder";
 import Gallery from "../../Main-design/gallery";
 import PrivateRoute from "./PrivetRoute";
+import Update from "../../server-rileted/update";
 
 
 
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
             {
                 path: "/gallery",
                 element: <Gallery></Gallery>,
+            },
+            {
+                path:"/addfood-food/:id",
+                element: <Update></Update>,
+                loader: ({params}) => fetch(`http://localhost:5000/addfood-food/${params.id}`)
+                
             }
 
 

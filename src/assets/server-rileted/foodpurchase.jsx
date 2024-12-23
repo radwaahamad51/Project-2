@@ -1,16 +1,18 @@
-import React, { useContext,  } from "react";
+import React, { useContext, } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const PurchaseFood = () => {
     const food = useLoaderData();
+    const { image }=food
+    console.log(food)
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const maxQuantity = Math.min(20, food.Quantity);
 
 
-   
+
 
 
 
@@ -18,7 +20,7 @@ const PurchaseFood = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        
+
         const form = e.target;
         const foodname = form.foodname.value;
         const Quantity = parseInt(form.Quantity.value, 10);
@@ -38,6 +40,7 @@ const PurchaseFood = () => {
 
 
         const allValue = {
+            image,
             foodname,
             Quantity,
             price,
@@ -66,8 +69,8 @@ const PurchaseFood = () => {
             });
     };
 
-    const isOwnItem = food.UserEmail === user?.email; 
-    const isOutOfStock = food.Quantity === 0; 
+    const isOwnItem = food.UserEmail === user?.email;
+    const isOutOfStock = food.Quantity === 0;
 
     return (
         <div className="min-h-screen  py-12">
@@ -81,7 +84,7 @@ const PurchaseFood = () => {
                     <h1 className="text-3xl font-bold text-gray-800">{food.foodname}</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="space-y-4">
-                           
+
                             <div>
                                 <label className="block text-gray-600">Food Name</label>
                                 <input
@@ -93,7 +96,7 @@ const PurchaseFood = () => {
                                 />
                             </div>
 
-                           
+
                             <div>
                                 <label className="block text-gray-600">Price</label>
                                 <input
@@ -105,7 +108,7 @@ const PurchaseFood = () => {
                                 />
                             </div>
 
-                          
+
                             <div>
                                 <label className="block text-gray-600">Quantity</label>
                                 <input
@@ -120,7 +123,7 @@ const PurchaseFood = () => {
                                 />
                             </div>
 
-                           
+
                             <div>
                                 <label className="block text-gray-600">Buyer Name</label>
                                 <input
@@ -132,7 +135,7 @@ const PurchaseFood = () => {
                                 />
                             </div>
 
-                          
+
                             <div>
                                 <label className="block text-gray-600">Buyer Email</label>
                                 <input
@@ -144,24 +147,24 @@ const PurchaseFood = () => {
                                 />
                             </div>
 
-                            
+
                             <div>
                                 <label className="block text-gray-600">Buying Date</label>
                                 <input
                                     type="text"
-                                    value={new Date().toLocaleString()} 
+                                    value={new Date().toLocaleString()}
                                     disabled
                                     className="w-full px-4 py-2 border rounded-lg text-gray-600"
                                     name="date"
                                 />
                             </div>
 
-                          
+
                             <button
                                 type="submit"
                                 className={`w-full py-3 px-4 rounded-lg font-medium ${isOwnItem || isOutOfStock
-                                        ? "bg-gray-400 cursor-not-allowed text-gray-800"
-                                        : "bg-blue-500 hover:bg-blue-600 text-white"
+                                    ? "bg-gray-400 cursor-not-allowed text-gray-800"
+                                    : "bg-blue-500 hover:bg-blue-600 text-white"
                                     }`}
                                 disabled={isOwnItem || isOutOfStock}
                             >
@@ -172,7 +175,7 @@ const PurchaseFood = () => {
                                         : "Purchase"}
                             </button>
 
-                           
+
                             {isOwnItem && (
                                 <p className="text-red-500 mt-4">
                                     You cannot purchase your own added item.

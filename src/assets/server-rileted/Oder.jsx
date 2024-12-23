@@ -7,64 +7,64 @@ import Swal from 'sweetalert2';
 
 
 const Orders = () => {
-   // Fetch orders from loader
+  
 
   const { user } = useAuth()
-    const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
 
   useEffect(() => {
     if (user?.email) {
-        fetch(`http://localhost:5000/addfood-oder?email=${user.email}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setOrders(data);
-                console.log(data)
-            })
-            .catch((error) => {
-                console.error("Failed to fetch orders:", error);
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: "Failed to load your orders. Please try again later.",
-                });
-            });
+      fetch(`http://localhost:5000/addfood-oder?email=${user.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setOrders(data);
+         
+        })
+        .catch((error) => {
+          console.error("Failed to fetch orders:", error);
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Failed to load your orders. Please try again later.",
+          });
+        });
     }
-}, [user]);
+  }, [user]);
 
 
-const handleDelete = (id) => {
+  const handleDelete = (id) => {
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
-        confirmButtonText: "Yes, delete it!",
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-        if (result.isConfirmed) {
-            fetch(`http://localhost:5000/addfood-oder/${id}`, {
-                method: "DELETE",
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.deletedCount > 0) {
-                        Swal.fire("Deleted!", "Your item has been deleted.", "success");
-                        setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));
-                    }
-                })
-                .catch((error) => {
-                    console.error("Failed to delete the order:", error);
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: "Failed to delete the item. Please try again later.",
-                    });
-                });
-        }
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/addfood-oder/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your item has been deleted.", "success");
+              setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));
+            }
+          })
+          .catch((error) => {
+            console.error("Failed to delete the order:", error);
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Failed to delete the item. Please try again later.",
+            });
+          });
+      }
     });
-};
+  };
 
   return (
     <div className="min-h-screen  py-12">
@@ -75,7 +75,8 @@ const handleDelete = (id) => {
             <thead>
               <tr className="w-full border-b">
                 <th className="py-2 px-4 text-left">Food Info</th>
-                <th className="py-2 px-4 text-left">Owner</th>
+                <th className="py-2 px-4 text-left">Food Name</th>
+                <th className="py-2 px-4 text-left">Quantity </th>
                 <th className="py-2 px-4 text-left">Price</th>
                 <th className="py-2 px-4 text-left">Buying Date</th>
                 <th className="py-2 px-4 text-left">Actions</th>
@@ -86,13 +87,14 @@ const handleDelete = (id) => {
                 <tr key={order._id} className="border-b">
                   <td className="py-2 px-4 flex items-center">
                     <img
-                      src={order.foodImage}
+                      src={order.image}
                       alt={order.foodName}
                       className="w-12 h-12 object-cover mr-4"
                     />
                     <span>{order.foodName}</span>
                   </td>
-                  <td className="py-2 px-4">{order.foodOwner}</td>
+                  <td className="py-2 px-4">{order.foodname}</td>
+                  <td className="py-2 px-4">{order.Quantity}</td>
                   <td className="py-2 px-4">${order.price}</td>
                   <td className="py-2 px-4">
                     {moment(order.buyingDate).format('MMMM Do YYYY, h:mm:ss a')}

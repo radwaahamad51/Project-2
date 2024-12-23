@@ -7,7 +7,7 @@ import useAuth from "../hooks";
 const AddFood = () => {
    const {user} = useAuth();
    const { id }= useParams();
-   console.log(id)
+  
     // const navigate = useNavigate();
 
     const handleSubmit = event => {

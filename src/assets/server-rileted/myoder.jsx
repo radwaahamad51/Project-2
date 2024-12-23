@@ -1,8 +1,9 @@
-import React, { useEffect, useState,  } from "react";
+import React, { useEffect, useState, } from "react";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import useAuth from "../hooks";
+import { Link } from "react-router-dom";
 // import moment from "moment";
 
 
@@ -64,7 +65,7 @@ const UserOrders = () => {
 
     return (
         <div className="max-w-4xl mx-auto my-8 p-6 border border-gray-300 rounded shadow-lg">
-            <h2 className="text-2xl font-bold text-center mb-6">Your {orders.length}</h2>
+            <h2 className="text-2xl font-bold text-center mb-6"> Your Food</h2>
             {orders.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {orders.map((order) => (
@@ -96,8 +97,12 @@ const UserOrders = () => {
                             >
                                 Delete
                             </button>
+                            <div className=" mt-3">
+                                <Link to={`/addfood-food/${order._id}`} className="btn btn-warning "> Update</Link>
+                            </div>
                         </div>
                     ))}
+
                 </div>
             ) : (
                 <p className="text-center text-gray-600">You have no orders yet.</p>
