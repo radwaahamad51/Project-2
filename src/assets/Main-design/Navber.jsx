@@ -12,7 +12,7 @@ const Navber = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    console.log(user)
+    
 
     const handleLogout = () => {
         logOut().then(() => {
@@ -82,7 +82,7 @@ const Navber = () => {
                         >
                             <div className="w-10 rounded-full">
                                 <img
-                                    src={user.photoURL || "https://via.placeholder.com/150"}
+                                    src={user.photoURL}
                                     alt="User Avatar"
                                 />
                             </div>
@@ -97,13 +97,13 @@ const Navber = () => {
                                     Logged in as <strong>{user.displayName}</strong>
                                 </p>
                                 <li className="px-4 py-2 hover:bg-gray-100">
-                                    <Link to="/useroder">My Foods</Link>
+                                    <Link className="text-blue-500" to="/useroder">My Foods</Link>
                                 </li>
                                 <li className="px-4 py-2 hover:bg-gray-100">
-                                    <Link to="/addfood">Add food</Link>
+                                    <Link className="text-blue-500" to="/addfood">Add food</Link>
                                 </li>
                                 <li className="px-4 py-2 hover:bg-gray-100">
-                                    <Link to="/oder">My Orders</Link>
+                                    <Link className="text-blue-500" to="/oder">My Orders</Link>
                                 </li>
                             </li>
                             <li>
