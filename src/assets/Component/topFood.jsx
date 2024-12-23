@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import BannerPage from "./banner";
 
 const TopFoods = () => {
   const [topFoods, setTopFoods] = useState([]);
@@ -68,6 +69,10 @@ const TopFoods = () => {
         >
           See All Foods
         </Link>
+      </div>
+
+      <div className="mt-8 mb-8">
+        <BannerPage></BannerPage>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import PurchaseFood from "../../server-rileted/foodpurchase";
 import Orders from "../../server-rileted/Oder";
 import Gallery from "../../Main-design/gallery";
 import PrivateRoute from "./PrivetRoute";
+import BannerPage from "../../Component/banner";
 
 
 
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <TopFoods></TopFoods>,
                 loader: () => fetch(`http://localhost:5000/addfood`),
+
+            },
+            {
+                path: '/',
+                element:<BannerPage></BannerPage>
+                
 
             },
             {
