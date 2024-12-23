@@ -23,7 +23,7 @@ const TopFoods = () => {
 
   return (
     <div className="my-12 max-w-7xl mx-auto">
-      <h2 className="text-4xl font-extrabold text-center mb-8 text-gray-800">
+      <h2 className="text-4xl font-extrabold text-center mb-8 ">
         🍴 Top Selling Foods 🍴
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
@@ -50,7 +50,7 @@ const TopFoods = () => {
               <p className="text-lg text-green-600 font-semibold">
                 ${food.price.toFixed(2)}
               </p>
-              <p className="text-xs text-gray-400 mt-1">
+              <p className="text-xs text-gray-400 mt-1 mb-4">
                 {food.Description.slice(0, 50)}...
               </p>
               <Link

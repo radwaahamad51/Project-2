@@ -11,7 +11,7 @@ import PurchaseFood from "../../server-rileted/foodpurchase";
 import Orders from "../../server-rileted/Oder";
 import Gallery from "../../Main-design/gallery";
 import PrivateRoute from "./PrivetRoute";
-import BannerPage from "../../Component/banner";
+
 
 
 
@@ -27,12 +27,7 @@ const router = createBrowserRouter([
                 loader: () => fetch(`http://localhost:5000/addfood`),
 
             },
-            {
-                path: '/',
-                element:<BannerPage></BannerPage>
-                
 
-            },
             {
                 path: "/login",
                 element: <Login></Login>
@@ -61,15 +56,15 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><UserOrders></UserOrders></PrivateRoute>
             },
             {
-                path:"purchase/:id",
+                path: "purchase/:id",
                 element: <PrivateRoute><PurchaseFood></PurchaseFood></PrivateRoute>,
-                 loader: ({ params }) => fetch(`http://localhost:5000/addfood/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/addfood/${params.id}`)
 
             },
             {
-                path:"/oder",
+                path: "/oder",
                 element: <PrivateRoute><Orders></Orders></PrivateRoute>
-               
+
 
             },
             {
