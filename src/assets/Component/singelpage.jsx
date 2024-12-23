@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useAuth from "../hooks";
 
 
 // Component for displaying a single food item
 const SingleFoodPage = () => {
    const food = useLoaderData(); // Get the loaded data
-   console.log(food)
+
 //   const navigate = useNavigate();
 
+
+
+const [orders, setOrders] = useState([]);
+const { user } = useAuth()
+    
+    
+
+// extra 
+useEffect(() => {
+    if (user?.email) {
+        fetch(`http://localhost:5000/addfood-oder?email=${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setOrders(data);
+                console.log(data)
+            })
+            .catch((error) => {
+                console.error("Failed to fetch orders:", error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Failed to load your orders. Please try again later.",
+                });
+            });
+    }
+}, [user]);
+
+
+
+
   return (
-    <div className="min-h-screen bg-gray-100 py-12">
+    <div className="min-h-screen  py-12">
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         <img
           src={food.image}
@@ -35,8 +66,8 @@ const SingleFoodPage = () => {
               <span className="text-red-500">Out of Stock</span>
             )}
           </p>
-          <p className="text-gray-600 text-sm mt-1">
-            Purchase Count: <span className="font-semibold">{food.purchaseCount || 0}</span>
+          <p className="text-gray-600 text-sm mt-1 mb-4">
+            Purchase Count: <span className="font-semibold">{orders.purchaseCount || 0}</span>
           </p>
 
           {/* Purchase Button */}
