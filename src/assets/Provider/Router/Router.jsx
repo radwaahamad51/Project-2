@@ -10,6 +10,7 @@ import SingleFoodPage from "../../Component/singelpage";
 import PurchaseFood from "../../server-rileted/foodpurchase";
 import Orders from "../../server-rileted/Oder";
 import Gallery from "../../Main-design/gallery";
+import PrivateRoute from "./PrivetRoute";
 
 
 
@@ -46,21 +47,21 @@ const router = createBrowserRouter([
             },
             {
                 path: "addfood",
-                element: <AddFood></AddFood>
+                element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
             },
             {
                 path: '/useroder',
-                element: <UserOrders></UserOrders>
+                element: <PrivateRoute><UserOrders></UserOrders></PrivateRoute>
             },
             {
                 path:"purchase/:id",
-                element:<PurchaseFood></PurchaseFood>,
+                element: <PrivateRoute><PurchaseFood></PurchaseFood></PrivateRoute>,
                  loader: ({ params }) => fetch(`http://localhost:5000/addfood/${params.id}`)
 
             },
             {
                 path:"/oder",
-                element: <Orders></Orders>,
+                element: <PrivateRoute><Orders></Orders></PrivateRoute>
                
 
             },

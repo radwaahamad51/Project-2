@@ -2,17 +2,18 @@ import { useContext } from "react";
 
 import { Navigate, useLocation } from "react-router-dom";
 
-import { AuthContext } from "../PRobider/AuthProvider";
-import Loading from "../Pages/loding";
+
+
+import { AuthContext } from "../AuthProvider";
 
 
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  const location = useLocation();
+  
   // console.log(location);
   if (loading) {
-    return <Loading></Loading>;
+    return <div>radwa</div>;
   }
   if (user && user?.email) {
     return children;
