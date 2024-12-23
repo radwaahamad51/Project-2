@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BannerPage from "./banner";
+import ChefSpotlight from "./chafesection";
+import Testimonials from "./tastmonils";
 
 const TopFoods = () => {
   const [topFoods, setTopFoods] = useState([]);
@@ -73,6 +75,12 @@ const TopFoods = () => {
 
       <div className="mt-8 mb-8">
         <BannerPage></BannerPage>
+      </div>
+      <div>
+        <ChefSpotlight></ChefSpotlight>
+      </div>
+      <div>
+        <Testimonials></Testimonials>
       </div>
     </div>
   );

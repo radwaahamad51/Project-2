@@ -4,6 +4,7 @@ import { PiDotsThreeOutlineVerticalDuotone } from "react-icons/pi";
 
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext, useState } from "react";
+import ThemeToggle from "../theam";
 
 
 
@@ -53,7 +54,7 @@ const Navber = () => {
             </div>
 
             {/* User Section */}
-            <div className="navbar-end gap-2">
+            <div className="navbar-end gap-5 ">
                 {/* If logged in */}
                 {user && user?.email ? (
                     <button onClick={logOut} className="btn btn-primary ">
@@ -64,13 +65,13 @@ const Navber = () => {
                         Login
                     </Link>
                 )}
-            </div>
+            
 
 
 
             {/* other */}
             {/* User Section */}
-            <div className="navbar-end gap-2">
+          
                 {/* If logged in */}
                 {user?.email ? (
                     <div className="dropdown dropdown-end">
@@ -122,7 +123,7 @@ const Navber = () => {
 
                 {/* Theme Toggle */}
                 <div className="flex-none">
-                    {/* <ThemeToggle /> */}
+                    <ThemeToggle />
                 </div>
             </div>
 
