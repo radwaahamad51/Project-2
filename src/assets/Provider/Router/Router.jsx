@@ -9,6 +9,7 @@ import TopFoods from "../../Component/topFood";
 import SingleFoodPage from "../../Component/singelpage";
 import PurchaseFood from "../../server-rileted/foodpurchase";
 import Orders from "../../server-rileted/Oder";
+import Gallery from "../../Main-design/gallery";
 
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
                 element: <Orders></Orders>,
                
 
+            },
+            {
+                path: "/gallery",
+                element: <Gallery></Gallery>,
             }
 
 

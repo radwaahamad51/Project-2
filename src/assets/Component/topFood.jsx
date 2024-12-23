@@ -62,12 +62,12 @@ const TopFoods = () => {
         ))}
       </div>
       <div className="text-center mt-12">
-        <button
-          onClick={() => navigate("/allfoods")}
+        <Link
+          to={"/AllFoods/:id"}
           className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition-all duration-300"
         >
           See All Foods
-        </button>
+        </Link>
       </div>
     </div>
   );

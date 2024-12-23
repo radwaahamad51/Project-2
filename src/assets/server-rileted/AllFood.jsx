@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const AllFoodsPage = () => {
-  const { user } = useContext(AuthContext);
+  const  user  = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -67,20 +67,19 @@ const AllFoodsPage = () => {
             </p>
             <p className="text-gray-700">Added by: {food.UserName}</p>
 
-            <Link to={`/food/${food._id}`}>
+            <Link to={`/addfood/${food._id}`}>
               <button
-                className={`mt-4 w-full py-2 px-4 rounded-lg font-medium ${
-                  food.Quantity === 0 || food.UserEmail === user.email
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-blue-500 hover:bg-blue-600 text-white"
-                }`}
+                className={`mt-4 w-full py-2 px-4 rounded-lg font-medium ${food.Quantity === 0 || food.UserEmail === user.email
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600 text-white"
+                  }`}
                 disabled={food.Quantity === 0 || food.UserEmail === user.email}
               >
                 {food.Quantity === 0
                   ? "Out of Stock"
                   : food.UserEmail === user.email
-                  ? "Cannot Purchase Own Item"
-                  : "Details"}
+                    ? "Cannot Purchase Own Item"
+                    : "Details"}
               </button>
             </Link>
           </div>
