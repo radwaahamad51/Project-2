@@ -36,7 +36,7 @@ const Banner = () => {
                         </div>
                         <h2 className="text-4xl font-bold mt-4">Welcome to Sports Store</h2>
                         <p className="mt-2 text-lg">Discover top-quality equipment for every sport.</p>
-                        <Link to={"/AllFoods/:id"} className="btn btn-primary mt-6">Shop Now</Link >
+                        <Link to={"/AllFoods/:id"} className="btn btn-primary mt-6">All Foods</Link >
                     </div>
                 </SwiperSlide>
 
@@ -49,7 +49,7 @@ const Banner = () => {
                         </div>
                         <h2 className="text-4xl font-bold mt-4">Your Game, Your Gear</h2>
                         <p className="mt-2 text-lg">Customize your equipment to match your unique style.</p>
-                        <Link to={"/AllFoods/:id"}  className="btn btn-secondary mt-6">Explore Customization</Link >
+                        <Link to={"/AllFoods/:id"}  className="btn btn-secondary mt-6">All Foods</Link >
                     </div>
                 </SwiperSlide>
 
@@ -62,7 +62,7 @@ const Banner = () => {
                         </div>
                         <h2 className="text-4xl font-bold mt-4">Unleash Your Potential</h2>
                         <p className="mt-2 text-lg">Find gear that boosts your performance and confidence.</p>
-                        <Link to={"/AllFoods/:id"} className="btn btn-accent mt-6">Learn More</Link>
+                        <Link to={"/AllFoods/:id"} className="btn btn-accent mt-6">All Foods</Link>
                     </div>
                 </SwiperSlide>
             </Swiper>

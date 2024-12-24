@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 const Orders = () => {
-  
+
 
   const { user } = useAuth()
   const [orders, setOrders] = useState([]);
@@ -15,11 +15,11 @@ const Orders = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/addfood-oder?email=${user.email}`)
+      fetch(`https://restorent-2-server.vercel.app/addfood-oder?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setOrders(data);
-         
+
         })
         .catch((error) => {
           console.error("Failed to fetch orders:", error);
@@ -44,7 +44,7 @@ const Orders = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addfood-oder/${id}`, {
+        fetch(`https://restorent-2-server.vercel.app/addfood-oder/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

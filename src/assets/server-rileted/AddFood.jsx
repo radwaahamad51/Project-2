@@ -31,7 +31,7 @@ const AddFood = () => {
 
        
 
-        fetch('http://localhost:5000/addfood-foods', {
+        fetch('https://restorent-2-server.vercel.app/addfood-foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

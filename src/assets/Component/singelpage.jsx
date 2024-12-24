@@ -19,7 +19,7 @@ const { user } = useAuth()
 // extra 
 useEffect(() => {
     if (user?.email) {
-        fetch(`http://localhost:5000/addfood-oder?email=${user.email}`)
+        fetch(`https://restorent-2-server.vercel.app/addfood-oder?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setOrders(data);

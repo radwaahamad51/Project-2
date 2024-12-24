@@ -31,11 +31,11 @@ const Update = () => {
             foodname, image, foodCategory, Quantity, price, Origin, Description, UserName,
             UserEmail
         };
-        console.log(allValue);
+       
 
 
 
-        fetch(`http://localhost:5000/addfood-food/${_id}`, {
+        fetch(`https://restorent-2-server.vercel.app/addfood-food/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const Update = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -160,7 +160,7 @@ const Update = () => {
                         type="submit"
                         className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
                     >
-                        Add Item
+                        Update
                     </button>
                 </div>
             </form>

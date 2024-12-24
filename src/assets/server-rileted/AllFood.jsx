@@ -10,7 +10,7 @@ const AllFoodsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/addfood")
+    fetch("https://restorent-2-server.vercel.app/addfood")
       .then((res) => res.json())
       .then((data) => setFoods(data))
       .catch((err) => console.error(err));

@@ -13,7 +13,7 @@ const UserOrders = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/addfood-food?email=${user.email}`)
+            fetch(`https://restorent-2-server.vercel.app/addfood-food?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setOrders(data);
@@ -41,7 +41,7 @@ const UserOrders = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addfood-foods/${id}`, {
+                fetch(`https://restorent-2-server.vercel.app/addfood-foods/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

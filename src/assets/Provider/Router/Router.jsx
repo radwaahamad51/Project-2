@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <TopFoods></TopFoods>,
-                loader: () => fetch(`http://localhost:5000/addfood`),
+                loader: () => fetch(`https://restorent-2-server.vercel.app/addfood`),
 
             },
 
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: '/addfood/:id',
                 element: <SingleFoodPage></SingleFoodPage>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addfood/${params.id}`)
+                loader: ({ params }) => fetch(`https://restorent-2-server.vercel.app/addfood/${params.id}`)
             },
             {
                 path: "/regester",
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: "purchase/:id",
                 element: <PrivateRoute><PurchaseFood></PurchaseFood></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addfood/${params.id}`)
+                loader: ({ params }) => fetch(`https://restorent-2-server.vercel.app/addfood/${params.id}`)
 
             },
             {
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
             {
                 path:"/addfood-food/:id",
                 element: <Update></Update>,
-                loader: ({params}) => fetch(`http://localhost:5000/addfood-food/${params.id}`)
+                loader: ({params}) => fetch(`https://restorent-2-server.vercel.app/addfood-food/${params.id}`)
                 
             }
 

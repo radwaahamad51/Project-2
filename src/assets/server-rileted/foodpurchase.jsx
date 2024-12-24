@@ -48,7 +48,7 @@ const PurchaseFood = () => {
             UserEmail,
         };
 
-        fetch("http://localhost:5000/addfood-oders", {
+        fetch("https://restorent-2-server.vercel.app/addfood-oders", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

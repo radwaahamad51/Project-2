@@ -9,7 +9,7 @@ const TopFoods = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/addfood")
+    fetch("https://restorent-2-server.vercel.app/addfood")
       .then((res) => res.json())
       .then((data) => {
         // Sort by purchaseCount and take the top 6
@@ -23,6 +23,9 @@ const TopFoods = () => {
 
   return (
     <div className="my-12 max-w-7xl mx-auto">
+      <div className="mt-8 mb-8">
+        <BannerPage></BannerPage>
+      </div>
       <h2 className="text-4xl font-extrabold text-center mb-8 ">
         🍴 Top Selling Foods 🍴
       </h2>
@@ -73,9 +76,7 @@ const TopFoods = () => {
         </Link>
       </div>
 
-      <div className="mt-8 mb-8">
-        <BannerPage></BannerPage>
-      </div>
+      
       <div>
         <ChefSpotlight></ChefSpotlight>
       </div>

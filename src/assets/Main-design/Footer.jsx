@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold">Delicious Bites</h2>
+            <h2 className="text-2xl font-bold">Restaurant Management</h2>
             <p>
               Your go-to destination for mouthwatering meals and delightful desserts. 
               We bring taste and quality together.
@@ -51,11 +51,7 @@ const Footer = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link to="/AllFoods" className="hover:underline">
-                  All Foods
-                </Link>
-              </li>
+              
               <li>
                 <Link to="/About" className="hover:underline">
                   About Us
@@ -80,7 +76,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="mt-10 border-t border-teal-400 pt-6 text-center text-sm">
-          <p>© {new Date().getFullYear()} Delicious Bites. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Restaurant Management. All rights reserved.</p>
         </div>
       </div>
     </footer>
